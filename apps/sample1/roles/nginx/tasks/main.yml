@@ -1,0 +1,32 @@
+- name: NGINX | Installing NGINX
+  yum:
+    name: nginx
+    state: latest
+
+- name: "Copy nginx config to /etc/nginx/nginx.conf"
+  template:
+    src: "nginx.conf"
+    dest: /etc/nginx/nginx.conf
+
+- name: "Create /apps directory"
+  file:
+    path:  "/apps/sites"
+    state: "directory"
+
+- name: "Copy site config to /apps/sites/site1.conf"
+  template:
+    src: "site1.conf"
+    dest: "/apps/sites/site1.conf"
+
+- name: "Create website directory"
+  file:
+    path:  "/apps/website"
+    state: "directory"
+
+- name: "Copy Basic html page"
+  template:
+    src: "index.html"
+    dest: "/apps/website/index.html"
+
+- name: Start Nginx
+  service: name=nginx enabled=yes state=started

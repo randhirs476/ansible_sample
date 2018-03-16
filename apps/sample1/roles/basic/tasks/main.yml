@@ -1,0 +1,14 @@
+- name: "Create /apps directory"
+  file:
+    path:  "/apps"
+    state: "directory"
+
+- name: Install list of packages
+  action: yum pkg={{item}} state=installed
+  with_items:
+       - htop
+       - vim
+       - mlocate
+       - unzip
+       - wget
+       - curl

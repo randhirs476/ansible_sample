@@ -1,0 +1,20 @@
+# Vars in this file have lower priority can be overridden in dev_vars or prod_vars file
+
+# Change these as per ur account
+region: ap-southeast-2
+image: "ami-43874721"
+instance_type: t2.micro
+subnet: subnet-f4971493
+security_group: sg-05581054725896777
+vpc_id: vpc-13906874
+
+new_security_group_name: "sample_ec2_sg"
+
+
+#
+private_key_path: "/Users/randhir/sshkeys/randhir-test.pem"
+username: "ec2-user"
+nginx_port: 80
+
+# This can be overridden in dev_vars file
+homepage_text: ""

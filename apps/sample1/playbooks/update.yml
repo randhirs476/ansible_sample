@@ -1,0 +1,10 @@
+- name: "Updating"
+  hosts: "host_with_key"
+  become: true
+  vars_files:
+    - "{{inventory_dir}}/apps/sample1/vars/vault.yml"
+    - "{{inventory_dir}}/apps/sample1/vars/common.yml"
+    - "{{inventory_dir}}/apps/sample1/vars/dev_vars.yml"
+  roles:
+     - {role: "{{inventory_dir}}/apps/sample1/roles/basic"}
+     - {role: "{{inventory_dir}}/apps/sample1/roles/nginx"}
